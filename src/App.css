@@ -1,42 +1,71 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+
+.App {
+    display: flex;
+    height: 95vh;
+    width: 100%;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.homePage {
+    height: 95vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.navbar-container {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    color: white;
   }
-  to {
-    transform: rotate(360deg);
-  }
+
+.cardsPage {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-y: auto;
+    margin: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
 
 .card {
-  padding: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 150px;
+    height: 170px;
+    margin: 5px;
+    padding: 5px;
+    user-select: none;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 5px;
+    background-color: #fff;
+    border: 1px solid #a2cdb0;
+    cursor: pointer;
+    &:hover {
+      border: 2px solid #85a389;
+      background-color: #a2cdb0;
+    }
+}
+.card p {
+    font-size: smaller;
 }
 
-.read-the-docs {
-  color: #888;
+.imageContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.imageContainer img {
+    max-height: 120px;
+    max-width: 140px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.paginationComponent {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
