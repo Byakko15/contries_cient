@@ -10,7 +10,18 @@ export const getCountries = async (name) => {
                 name
             }
         });
+        return data;
+    } catch (error) {
+        const message = handleError(error);
+        throw message
+    }
+}
 
+export const getCountryById = async (id) => {
+    try {
+        const { data } = await api({
+            url: `/countries/${id}`,
+        });
         return data;
     } catch (error) {
         const message = handleError(error);

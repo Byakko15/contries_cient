@@ -22,6 +22,7 @@ export const Pagination = () => {
           Prev
         </button>
       )}
+      <span>{`${currentPage} de ${totalPages}`}</span>
       {currentPage < totalPages && (
         <button name="next" onClick={handleClick}>
           Next

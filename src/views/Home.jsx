@@ -32,7 +32,9 @@ export const Home = () => {
     <div className="homePage">
       <Navbar />
       <Cards countries={countries} />
-      <Pagination />
+      {
+        countries.length > 0 && <Pagination />
+      }
     </div>
   );
 };

@@ -10,20 +10,11 @@ import {
     
     switch (type) {
       case ORDER_BY_NAME:
-        array.sort((a, b) => {
-          if (a.orderName > b.orderName) return -1;
-          if (a.orderName < b.orderName) return 1;
-          return 0;
-        });
+        array.sort((a,b) => b.orderName.localeCompare(a.orderName))
         break;
   
       case ORDER_BY_POPULATION:
-        array.sort((a, b) => {
-          if (a.population > b.population) return -1;
-          if (a.population < b.population) return 1;
-          return 0;
-        });
-  
+        array.sort((a,b)=> b.population - a.population)
         break;
   
       default:
@@ -34,20 +25,11 @@ import {
   const orderByTypeASC = ({ type, array }) => {
     switch (type) {
       case ORDER_BY_NAME:
-        array.sort((a, b) => {
-          if (a.orderName > b.orderName) return 1;
-          if (a.orderName < b.orderName) return -1;
-          return 0;
-        });
+        array.sort((a,b) => a.orderName.localeCompare(b.orderName))
         break;
   
       case ORDER_BY_POPULATION:
-        array.sort((a, b) => {
-          if (a.population > b.population) return 1;
-          if (a.population < b.population) return -1;
-          return 0;
-        });
-  
+        array.sort((a,b)=> a.population - b.population)
         break;
   
       default:
@@ -77,12 +59,18 @@ import {
     const allContinents = countries.map(country => country.continent);
     return [...new Set(allContinents)]
   }
+
+  const findAllActivities = (countries) => {
+    const allActivities = countries.filter(e => e.activities.length > 0).map(country => country.activities);
+    return [...new Set(allActivities.flat())]
+  }
   
   export const processFilter = ({
     immutableArrayState,
     continentFilter,
     activityFilter,
     continents,
+    activities,
     currentPage,
     orderFlow,
     orderBy,
@@ -93,14 +81,14 @@ import {
     }
 
     if(continentFilter !== "all"){
-        objArray.newArray = objArray.newArray.map(country => {
+        objArray.newArray = objArray.newArray.filter(country => {
             return country.continent === continentFilter
         })
     }
 
     if(activityFilter !== "all"){
-        objArray.newArray = objArray.newArray.map(country => {
-            return country.activities.includes(continentFilter)
+        objArray.newArray = objArray.newArray.filter(country => {
+            return country.activities.includes(activityFilter)
         })
     }
 
@@ -118,7 +106,10 @@ import {
       orderBy,
       continents: continents.length > 0 
         ? continents 
-        : findAllContinents(immutableArrayState)
+        : findAllContinents(immutableArrayState),
+      activities: activities.length > 0 
+        ? activities 
+        : findAllActivities(immutableArrayState)
     };
   };
   

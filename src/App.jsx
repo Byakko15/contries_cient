@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import { LandingPage } from "./views/LandingPage";
 import { Home } from "./views/Home";
 import { Detail } from "./views/Detail";
-import { CreateActitivy } from "./views/CreateActitivy";
+import { CreateActivity } from "./views/CreateActivity";
 import { Default } from "./views/Default";
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/home" element={<Home />} />
         <Route path="/detail/:id" element={<Detail />} />
-        <Route path="/form" element={<CreateActitivy />} />
+        <Route path="/form" element={<CreateActivity />} />
         <Route path="/*" element={<Default />} />
       </Routes>
     </div>

@@ -6,7 +6,7 @@ import {
     FILTER_CONTINENT,
     FILTER_TOURIST_ACT,
     ORDER_ACTION,
-    SEARCH_NAME,
+    SAVE_SEARCH_NAME,
     CREATE_ACTIVITY,
     SAVE_COUNTRIES,
 } from "./action_types";
@@ -27,14 +27,17 @@ const initialState = {
 };
 
 export const reducer = (state = initialState, action) => {
-  const { countriesBackup, continentFilter, continents, activitiesFilter, orderFlow, orderBy } =
-    state;
+  const { 
+    countriesBackup, continentFilter, continents, 
+    activitiesFilter, orderFlow, orderBy, activities,
+  } = state;
   switch (action.type) {
     case SAVE_COUNTRIES:
       const saveCountries = processFilter({
         immutableArrayState: action.payload,
         continentFilter: continentFilter,
         activityFilter: activitiesFilter,
+        activities,
         continents,
         currentPage: 1,
         orderFlow,
@@ -67,12 +70,13 @@ export const reducer = (state = initialState, action) => {
         immutableArrayState: countriesBackup,
         continentFilter: action.payload,
         activityFilter: activitiesFilter,
+        activities,
         continents,
         currentPage: 1,
         orderFlow,
         orderBy,
       });
-
+    
       return {
         ...state,
         ...filterContinent,
@@ -93,6 +97,7 @@ export const reducer = (state = initialState, action) => {
         orderFlow,
         orderBy,
         continents,
+        activities,
       });
 
       return {
@@ -109,6 +114,7 @@ export const reducer = (state = initialState, action) => {
         orderFlow,
         orderBy,
         continents,
+        activities,
         ...action.payload,
       });
 
@@ -117,7 +123,7 @@ export const reducer = (state = initialState, action) => {
         ...orderResult,
       };
 
-    case SEARCH_NAME:
+    case SAVE_SEARCH_NAME:
       return {
         ...state,
         searchName: action.payload,
@@ -128,7 +134,10 @@ export const reducer = (state = initialState, action) => {
         ...state,
         countriesBackup: [],
         countriesPage: [],
+        countries: [],
+        activities: [],
         currentPag: 1,
+        totalPages: 1,
       };
 
     default:
