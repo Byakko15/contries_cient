@@ -31,14 +31,20 @@ export const SearchBar = () => {
   }
 
   return (
-    <div>
-      <input
+    <div className="container-search">
+     
+      <input 
         type="text"
         value={input}
         placeholder="Search country"
         onChange={handleChange}
       />
-      <button onClick={handleClick}>Search</button>
+      <div
+        className='button-search'
+      >
+        <button onClick={handleClick}>🔎</button>
+      </div>
+
     </div>
   );
 };

@@ -18,14 +18,22 @@ export const Pagination = () => {
   return (
     <div className="paginationComponent">
       {currentPage > 1 && (
-        <button name="prev" onClick={handleClick}>
-          Prev
+        <button 
+          name="prev" 
+          onClick={handleClick}
+          className="prev-page pagination-common"
+        >
+          ⬅️
         </button>
       )}
-      <span>{`${currentPage} de ${totalPages}`}</span>
+      <span>{`${currentPage} of ${totalPages}`}</span>
       {currentPage < totalPages && (
-        <button name="next" onClick={handleClick}>
-          Next
+        <button 
+          name="next" 
+          onClick={handleClick}
+          className="next-page pagination-common"
+        >
+          ➡️
         </button>
       )}
     </div>

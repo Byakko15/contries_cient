@@ -2,10 +2,16 @@ export const ButtonComponent = ({
   handleClick = () => {},
   title,
   type = "button",
+  buttonClass,
+  containerClass,
 }) => {
   return (
-    <div>
-      <button onClick={handleClick} type={type}>
+    <div className={containerClass}>
+      <button 
+        onClick={handleClick} 
+        type={type}
+        className={buttonClass}
+      >
         {title}
       </button>
     </div>

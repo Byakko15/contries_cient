@@ -15,10 +15,15 @@ export const Navbar = () => {
     <nav className="navbar-container">
       <SearchBar />
       <Filters />
+      <div className="home-home-container">
+        🏡
+      </div>
       <OrderComponent />
       <ButtonComponent 
-        title="Create Activity" 
-        handleClick={handleClick} 
+        title="➕ Activity" 
+        handleClick={handleClick}
+        containerClass="button-activity-container"
+        buttonClass={"createButton"}
       />
     </nav>
   );

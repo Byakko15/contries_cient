@@ -18,7 +18,10 @@ export const OrderComponent = () => {
   };
 
   return (
-    <div style={{color:"black"}}>
+    <div 
+      style={{color:"black"}}
+      className="order-container"
+    >
       <OrderBy
         selectName={ORDER_BY}
         title={"Order by"}
