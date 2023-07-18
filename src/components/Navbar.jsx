@@ -24,6 +24,7 @@ export const Navbar = () => {
         handleClick={handleClick}
         containerClass="button-activity-container"
         buttonClass={"createButton"}
+       
       />
     </nav>
   );

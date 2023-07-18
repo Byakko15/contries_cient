@@ -6,10 +6,10 @@ export const validation = (form) => {
     if (name.length === 0 || !name || /^[0-9]*$/.test(name) ) {
       error.name = "Please enter a valid name";
     }
-    if (duration === 0) {
+    if (duration < 0.1) {
       error.duration = "Please select a duration";
     }
-    if (difficulty === 0) {
+    if (difficulty <1) {
       error.difficulty = "Please select a difficulty";
     }
     if (!season) {

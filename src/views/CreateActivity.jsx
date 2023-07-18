@@ -101,8 +101,12 @@ export const CreateActivity = () => {
     }, [form,countriesSelected])
 
     return ( 
-        <div>
-            <h3>Fill out the form</h3>
+        <div className='form-container'>
+            <div className='form-title-container'>
+                <h3>Fill out the form  📝</h3>
+            </div>
+            <div>                
+            </div>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="name">Name: </label>
                 <input 
@@ -111,9 +115,30 @@ export const CreateActivity = () => {
                     name="name"
                     value={form.name}
                     onChange={handleChange}
+                    className={error.name ? "error" : "success"}
                 />
-                {error.name && <span>{error.name}</span>}
                 <br />
+                {error.name && <span className='please'> {error.name}</span>}
+                <br />
+
+                <label htmlFor="duration">Duration: </label>
+                <input
+                    type="number"
+                    min="0"
+                    max="99"
+                    step="0.1"           
+                    name="duration"
+                    value={form.duration}
+                    onChange={handleChange}
+                    className={error.duration ? "error" : "success"}
+                />
+                <span> Hours ⏱️  </span>
+                <span>/ {form.duration*60} Minutes ⏲️ </span> 
+                <br />    
+                             
+                {error.duration && <span className='please'>{error.duration}</span>}                 
+                <br />  
+
 
                 <label htmlFor="difficulty">Difficulty: </label>
                 <input
@@ -125,76 +150,69 @@ export const CreateActivity = () => {
                     name="difficulty"
                     value={form.difficulty}
                     onChange={handleChange}
+                    className='range'
                 />
                 <span>{form.difficulty}</span>   
-                {error.difficulty && <span>{error.difficulty}</span>}        
+                <br />
+                {error.difficulty && <span className='please'> {error.difficulty}</span>}        
                 <br />      
 
-                <label htmlFor="duration">Duration: </label>
-                <input
-                    type="number"
-                    min="0"
-                    max="99"
-                    step="0.1"           
-                    name="duration"
-                    value={form.duration}
-                    onChange={handleChange}
-                />
-                <span> Hours  </span>
-                <span>/ {form.duration*60} Minutes </span>   
-                
-                
-                {error.duration && <span>{error.duration}</span>}                 
-                <br />  
-
-                <select name='season' id='season-select' onChange={handleChange}>
+                <select className={error.season ? "error" : "success"} name='season' id='season-select' onChange={handleChange}>
                     <option value={'Choose a season'}>Choose a season</option>
-                    <option value={'fall'}>Fall</option>
-                    <option value={'spring'}>Spring</option>
-                    <option value={'summer'}>Summer</option>
-                    <option value={'winter'}>Winter</option>
+                    <option value={'fall'}>Fall🍂</option>
+                    <option value={'spring'}>Spring🌈</option>
+                    <option value={'summer'}>Summer☀️</option>
+                    <option value={'winter'}>Winter☃️</option>
                 </select>
-                {error.season && <span>{error.season}</span>} 
+                <br />
+                {error.season && <span className='please'> {error.season}</span>} 
                 <br />    
                 
-                  
-                <select name='countries' id='countries-select' onChange={handleChange}>
+                <select className={error.countries ? "error" : "success"} name='countries' id='countries-select' onChange={handleChange}>
                     <option>Choose country</option>
                     {
                         countries.map((country)=>(
                             <option 
-                                key={country.id}
+                              key={country.id}
                             >{country.name}</option> 
                         ))
                     }
                 </select>
-                {error.countries && <span>{error.countries}</span>} 
-                <div style={{display:"flex", flexWrap:"wrap"}}>
+                <br />
+                {error.countries && <span className='please'>{error.countries}</span>} 
+                <div style={{display:"flex", flexWrap:"wrap",}}>
                     {
                         countriesSelected&&(Object.keys(countriesSelected).map((country)=>{
                             return(
                                 <div key={country}>
-                                    <span>{country}</span>
-                                    <button onClick={()=> handleClickDelete(country)}>x</button>
+                                    {/* <span>{country}</span> */}
+                                    <div className='country-selected' onClick={()=> handleClickDelete(country)}>{country}
+                                        
+                                    </div>
                                 </div>)
                         }))
                     }
                 </div>
-                
                 <br />      
 
-                {/* <Button title="Create activity" type="submit" /> */}
-                <ButtonComponent handleClick={handleClickCancel} title="Cancel" />
-                <button 
-                    disabled = {Object.keys(error).length !== 0} 
-                >
-                    Submit
+            <div className='buttons-form-container'>
+                <ButtonComponent 
+                    handleClick={handleClickCancel} 
+                    title="Cancel ❎" 
+                    containerClass="button-activity-container"
+                    buttonClass={"createButton"}
+                />
+
+                <button className='createButton'
+                    disabled = {Object.keys(error).length !== 0}>
+                    Submit ✅
                 </button>
+            </div>
             
              </form>
+        </div>
 
              
-        </div>
 
   )
 }
