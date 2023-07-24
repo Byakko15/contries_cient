@@ -228,40 +228,28 @@ body{
 }
 
 .container-detail{
+    display: flex;
+    flex-direction: column;
     background-image: url('./images/fondoAzul.png');
     background-size: cover;
     width: 100%;        
 }
 
 .container-image-detail{
-   flex-direction:row;
     user-select: none; 
-    margin-top: 3%;
+    width: 50%;
+  
 }
 
 .container-data-detail{
-    line-height:0.7rem;
+    line-height:0.2rem;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: #02033b;
     border: 2px solid #02033b;
     border-radius: 5px;
     padding: 10px;
-    user-select: none; 
-    &:hover{
-        background-color: #a5bdeb85;
-        height: 250px;
-        font-size: 17px;
-        color: black;
-    }
-    
+    user-select: none;   
 } 
-
-.container-ima-data{  
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin-top: 5%;
-   }
 
 .title-detail{
     text-align: center;
@@ -271,7 +259,7 @@ body{
 
 .button-detail{
     position: relative;
-    margin-top: 4%;
+    margin: 8px;
     width: 75px;   
     height: 30px;
     background-color: white ;
@@ -351,19 +339,6 @@ body{
     color: rgba(105, 102, 102, 0.959); 
 }
 
-/* .button-submit{
-    background-color: rgb(170, 223, 170);
-    margin-left: 50%;
-    font-weight: 700;
-    border: 2px solid  rgba(13, 50, 92, 0.904);;
-    border-radius: 5px;
-    padding: 3px;
-    &:hover{
-    background-color: rgba(84, 122, 165, 0.664);
-    border: 2px solid rgb(170, 223, 170);
-    }
-} */
-
 .buttons-form-container{
     display: flex;
     justify-content:space-between;
@@ -388,6 +363,38 @@ body{
     
 }
 
+.detail-content-container {
+    display: flex;
+    flex: 1;
+    padding: 8px;
+}
 
+.detail-content{
+    display: flex;
+    flex:1;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.container-ima-data{  
+    display: flex;
+}
+.container-ima-data img{  
+    max-width: 180px;
+}
+
+.no-select-detail{
+    flex: 1;
+}
+.container-data-detail-activities{
+    line-height:0.2rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #02033b;
+    border: 2px solid #02033b;
+    border-radius: 5px;
+    padding: 10px;
+    user-select: none;   
+} 
    
 

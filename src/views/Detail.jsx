@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom"
 import { getCountryById } from "../http/countriesRequest";
+import { DetailContent } from "../components/DetailContent";
 
 export const Detail = () => {
 
@@ -14,7 +15,10 @@ export const Detail = () => {
         subregion: '',
         area: 0,
         population: 0,
+        activities: [],
     })
+
+
 
     const searchCountryById = async (id)=>{
         try {
@@ -33,31 +37,20 @@ export const Detail = () => {
     }, [])
 
     const handleClickBack = ()=>{
-        navigate("/home"); 
+        navigate("/home");
     }
 
   return (
     <div className="container-detail">
-        <h2 className="title-detail">{country.name}'s details</h2>
-        <div className="container-ima-data">
-            <div className="container-image-detail">
-                <img src={country.flagImageUrl} alt={country.name}></img>
-            </div>
-            <div className="container-data-detail" >
-                <h3>Name: {country.name}</h3>
-                <h4>Id: {country.shortName}</h4>
-                <h4>Continent: {country.continent}</h4>
-                <h4>Capital: {country.capital}</h4>
-                <h4>Subregion: {country.subregion}</h4>
-                <h4>Area: {country.area}  Km²</h4>
-                <h4>Population: {country.population}</h4>
-            </div>
-        </div>
-       
+        {country.name && (
+            <h2 className="title-detail">{country.name}'s ({country.shortName}) details</h2>
+        )}
+        <DetailContent 
+            country={country}
+        />
         <div className="button-detail-container">
-            <button className="button-detail" onClick={handleClickBack} >🏡🔙  </button>    
-        </div>   
-      
+            <button className="button-detail" onClick={handleClickBack} >🏡🔙  </button>
+        </div>
     </div>
   );
 };

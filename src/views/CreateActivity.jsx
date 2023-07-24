@@ -32,7 +32,8 @@ export const CreateActivity = () => {
     const makeActivity = async (body) => {
         try {
           const newActivity = await postActivity(body);
-          dispatch(createActivityAction(newActivity));   
+          dispatch(createActivityAction(newActivity));
+          alert("Activity was created successfully");   
           navigate("/home"); 
         } catch (error) {
           alert(error)
@@ -125,7 +126,7 @@ export const CreateActivity = () => {
                 <input
                     type="number"
                     min="0"
-                    max="99"
+                    max="24"
                     step="0.1"           
                     name="duration"
                     value={form.duration}

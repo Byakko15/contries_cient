@@ -13,9 +13,11 @@ export const Cards = ({ countries }) => {
             name={country.name}
             imageUrl={country.flagImageUrl}
             continent={country.continent}
-          />
-        ))
-      )}
+            activities={country.activities}
+            />
+            ))
+            )}
     </div>
   );
+ 
 };

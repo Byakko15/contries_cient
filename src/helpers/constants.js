@@ -4,6 +4,7 @@ export const ORDER_ASC = "Asc";
 export const ORDER_DESC = "Desc";
 export const ORDER_FLOW= "orderFlow";
 export const ORDER_BY = "orderBy";
+
 export const clasifyType = [
   { name: ORDER_BY_NAME, id: new Date() + ORDER_BY_NAME },
   { name: ORDER_BY_POPULATION, id: new Date() + ORDER_BY_POPULATION },
