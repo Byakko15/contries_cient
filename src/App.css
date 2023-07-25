@@ -379,13 +379,16 @@ body{
 
 .container-ima-data{  
     display: flex;
+    user-select: none;
 }
 .container-ima-data img{  
     max-width: 180px;
+    user-select: none;
 }
 
 .no-select-detail{
     flex: 1;
+    text-align: center;
 }
 .container-data-detail-activities{
     line-height:0.2rem;

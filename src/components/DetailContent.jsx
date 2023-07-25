@@ -81,23 +81,3 @@ export const DetailContent = ({country}) => {
 }
 
 
-{/* 
-<div className="container-ima-data">
-            <div>
-                <img src={country.flagImageUrl} alt={country.name}></img>
-            </div>
-            <div className="container-data-detail" >
-                <h3>Name: {country.name}</h3>
-                <h4>Id: {country.shortName}</h4> 
-                <h4>Continent: {country.continent}</h4>
-                <h4>Capital: {country.capital}</h4>
-                <h4>Subregion: {country.subregion}</h4>
-                <h4>Area: {country.area}  Km²</h4>
-                <h4>Population: {country.population}</h4>
-            </div>
-            <div className="button-detail-container">
-                <button className="button-detail" onClick={handleClickBack} >🏡🔙  </button>
-            </div>
-        </div> 
-    */}
-
